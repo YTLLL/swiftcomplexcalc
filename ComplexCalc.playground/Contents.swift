@@ -4,17 +4,6 @@ print("Welcome back to the UW Calculator")
 // Your job is to fill out Calculator so all the expressions
 // below both compile and return "true"
 class Calculator {
-    /*var someDict : [String:Int]
-    var someNum : Int
-    var someList : [Int]
-    var someTuple: (Int, Int)*/
-    
-    /*enum unitOfCalc {
-        case someNum(Int), someList([Int]), someTuple((Int, Int)), someDict([String : Int])
-    }
-    
-    var leftNum : unitOfCalc
-    var rightNum : unitOfCalc*/
     
     var total : Int
     var tuple1 : Int
@@ -100,10 +89,13 @@ class Calculator {
         return op(lhs, rhs)
     }
     
-    /*func mathOp(_ arg: [Int],_ beg: Int, op : (arg1 Int, arg2 Int) -> Int) -> Int {
-         return op(arg1 , beg)
-        
-    }*/
+    func mathOp(args: [Int],beg: Int, op : (Int, Int) -> Int) -> Int {
+        var sum : Int = beg
+        for i in args {
+            sum = op(sum, i)
+        }
+        return sum
+    }
 
     
     //Dictionary Calculation
@@ -161,12 +153,12 @@ calc.avg([2, 2, 2, 2, 2, 2]) == 2
 calc.avg([1, 2, 3, 4, 5]) == 3
 calc.avg([1]) == 1
 
-/*calc.mathOp(args: [1, 2, 3], beg: 0, op: { $0 + $1 }) == 6
+calc.mathOp(args: [1, 2, 3], beg: 0, op: { $0 + $1 }) == 6
     // this is (((0 op 1) op 2) op 3)
 calc.mathOp(args: [1, 2, 3, 4, 5], beg: 0, op: { $0 + $1 }) == 15
     // this is (((((0 op 1) op 2) op 3) op 4) op 5)
 calc.mathOp(args: [1, 1, 1, 1, 1], beg: 1, op: { $0 * $1 }) == 1
-    // this is (((((1 op 1) op 1) op 1) op 1) op 1)*/
+    // this is (((((1 op 1) op 1) op 1) op 1) op 1)
 
 let p1 = (5, 5)
 let p2 = (12, -27)
